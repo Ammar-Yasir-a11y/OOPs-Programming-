@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class Product{
+	protected:
+	string name;
+	double price;
+	public:
+	Product(string n,double p){
+		name=n;
+		price=p;
+	}	
+	void Display(){
+	cout<<"the product name is: "<<name<<endl;
+	cout<<"the price of product is: "<<price<<endl;	
+	}
+};
+class Electronic: public Product{
+	private:
+	int warrantyYear;
+	public:
+	Electronic(string n,double p,int war):Product(n,p){
+		warrantyYear=war;
+	}
+	void show(){
+		Display();
+		cout<<"warrantyear: "<<warrantyYear<<" year"<<endl;
+	}
+};
+int main(){
+	Electronic e("Laptop",72000,3);
+	e.show();
+}

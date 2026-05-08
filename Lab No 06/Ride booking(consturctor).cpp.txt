@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+class Vehical{
+	public:
+	Vehical(){
+	cout<<"Vehical consturctor is called"<<endl;	
+	}
+		
+};
+class Car: public Vehical{
+	public:
+	Car(){
+	cout<<"Car consturctor is called"<<endl;
+	}	
+};
+class ElectronicCar: public Car{
+	public:
+	ElectronicCar(){
+	cout<<"ElectricCar consturctor is called";		
+	}	
+		
+};
+int main(){
+	ElectronicCar obj;
+	return 0;
+}

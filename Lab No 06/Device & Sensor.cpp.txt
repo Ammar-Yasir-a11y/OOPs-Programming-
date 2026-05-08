@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+class Device{
+  private:
+  string deviceName;
+  int deviceID;
+  int* data;
+	public:
+	Device(string DN,int DID){
+	deviceName=DN;
+    deviceID=DID;
+    data=new int(100);
+    cout<<"Device constructr is called"<<endl;
+	}
+   	~Device(){
+    delete data;
+    cout<<"Device Destructor is called"<<endl;
+	}
+};
+class Sensor: public Device{
+	private:
+	string sensorType;
+	float* sensorValue;
+	public:
+	Sensor(string DN,int DID,string ST,float value):Device(DN, DID){
+    sensorType=ST;
+    sensorValue=new float(value);
+    cout<<"Sensor constructr is called"<<endl;
+	}
+   	~Sensor(){
+    delete sensorValue;
+    cout<<"Sensor Destructor is called"<<endl;
+	}
+
+};
+		
+int main(){
+	Sensor* s=new Sensor("TempDevic",101,"Temperature",36.5);
+	delete s;
+	return 0;
+}

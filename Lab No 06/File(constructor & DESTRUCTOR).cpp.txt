@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+class File{
+	public:
+	File(){
+	cout<<"Filed Open"<<endl;	
+	}
+	   	~File(){
+	cout<<"Filed Close "<<endl;	
+	}
+};
+class TextFile: public File{
+	public:
+	TextFile(){
+	cout<<"TextFiled Open"<<endl;	
+	}
+	   	~TextFile(){
+	cout<<"TextFiled Close"<<endl;	
+	}
+};
+		
+int main(){
+	TextFile t;
+	return 0;
+}
