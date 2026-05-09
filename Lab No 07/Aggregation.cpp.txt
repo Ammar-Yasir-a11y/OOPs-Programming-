@@ -1,0 +1,52 @@
+#include <iostream>
+
+class Calculator {
+public:
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    double multiply(double a, double b) {
+        return a * b;
+    }
+};
+
+class Student {
+    Calculator* calc; // Aggregation: uses an external calculator
+
+public:
+    Student(Calculator* c) {
+        calc = c;
+    }
+
+    void solveAddition(double a, double b) {
+        if (calc) {
+            std::cout << "Addition result : "
+                      << calc->add(a, b) << "\n";
+        }
+    }
+
+    void solveMultiplication(double a, double b) {
+        if (calc) {
+            std::cout << "Multiplication result : "
+                      << calc->multiply(a, b) << "\n";
+        }
+    }
+};
+
+int main() {
+    Calculator myCalculator; // Created outside the student
+
+    Student s1(&myCalculator);
+    Student s2(&myCalculator);
+
+    std::cout << "--- Student 1 ---\n";
+    s1.solveAddition(5, 3);
+    s1.solveMultiplication(4, 5);
+
+    std::cout << "\n--- Student 2 ---\n";
+    s2.solveAddition(10, 2);
+    s2.solveMultiplication(6, 7);
+
+    return 0;
+}
